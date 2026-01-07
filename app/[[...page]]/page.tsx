@@ -1,7 +1,6 @@
 import { builder } from "@builder.io/sdk";
-import { RenderBuilderContent } from "../src/components/builder";
 import "../../app/globals.css";
-import { unstable_noStore as noStore } from "next/cache";
+import BuilderPreviewClient from "./BuilderPreviewClient";
 
 export const revalidate = 5;
 
@@ -24,16 +23,17 @@ export default async function Page(props: PageProps) {
     !!searchParams["builder.noCache"] ||
     !!searchParams["builder.cachebust"];
 
-  if (isBuilderEditing) noStore();
+  // ✅ In editor/preview: render client component so it can live-update
+  if (isBuilderEditing) {
+    return <BuilderPreviewClient urlPath={urlPath} />;
+  }
 
+  // ✅ In normal mode: server fetch (fast + cacheable)
   const content = await builder
-    .get("page", {
-      userAttributes: { urlPath },
-      options: isBuilderEditing
-        ? { cachebust: true, includeUnpublished: true }
-        : undefined,
-    })
+    .get("page", { userAttributes: { urlPath } })
     .toPromise();
+
+  const { RenderBuilderContent } = await import("../src/components/builder");
 
   return (
     <RenderBuilderContent
