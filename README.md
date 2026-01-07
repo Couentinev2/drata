@@ -84,5 +84,3 @@ drata-master/
 3. **Publish Changes**
    - Click "Publish" in Builder.io
    - Changes will be live within 5 seconds (cache revalidation)
-
-## 🚢 Deployment

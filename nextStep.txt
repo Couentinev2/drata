@@ -1,0 +1,59 @@
+## ANALYTICS
+--------------------
+
+
+We will add basic analytics to understand how people use the site and the AI assistant.
+
+We want to monitor:
+
+Visitors and page views
+
+How often the AI assistant is opened and used
+
+Which CTAs get clicked
+
+Demo conversion rates
+
+Site performance (Core Web Vitals)
+
+Errors and crashes
+
+This gives us real insight into what is working and what needs improvement.
+
+
+## PRIVACY AND COMPLIANCE
+--------------------
+
+
+Before going live, we make sure everything is privacy-safe.
+
+Key actions:
+
+Add a cookie consent banner before loading analytics
+
+Show a small privacy note in the AI assistant explaining that conversations are not stored
+
+Publish a Privacy Policy explaining how data is handled
+
+Support opt-out and data deletion requests (GDPR / CCPA friendly)
+
+Important principle:
+
+AI chats are processed in memory only and are not stored.
+
+
+## RATE LIMITING (PROTECT THE AI ENDPOINT)
+--------------------
+
+
+We will protect the AI API from abuse and runaway costs.
+
+Strategy:
+
+Limit requests per IP (for example, around 10 per minute)
+
+Limit requests per user session (for example, around 50 per hour)
+
+If someone keeps hitting limits, automatically slow them down using exponential backoff
+
+This keeps the system stable, fast, and affordable.

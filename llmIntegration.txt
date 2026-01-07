@@ -1,0 +1,44 @@
+Current State
+-------------
+
+The application currently uses keyword matching in:
+
+  /api/chat/route.ts
+
+
+INTEGRATION APPROACH
+-------------------
+
+1) Choose an LLM Provider
+
+2) Update the API Route
+
+Replace the existing keyword-matching logic with a call to the LLM provider.
+
+Flow:
+- Receive user's message
+- Send the message + context to LLM API
+- Receive LLM response
+- Stream the response back to the client
+
+
+3) Add Context and Prompting
+
+- Define the assistant’s role
+  (e.g., "You are a Drata compliance expert")
+
+Context Injection:
+- Include relevant domain knowledge
+  (frameworks, compliance features, terminology)
+- Optionally include recent conversation history for continuity
+
+
+4) Streaming Responses
+
+- Keep the existing streaming implementation in:
+  
+  AiAssistant.tsx
+
+- The API route should stream tokens as they arrive from the LLM
+  to provide a real-time chat experience
+
