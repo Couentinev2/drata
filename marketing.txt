@@ -1,0 +1,23 @@
+MARKETING & DESIGN COLLABORATION WORKFLOW
+========================================
+
+The AI Helper component is registered in Builder.io with configurable inputs.
+This allows marketing and design teams to manage ongoing updates independently of engineering.
+
+Typical collaboration flow:
+
+1) Design Team
+   - Defines layout and default styling of the AI Helper component
+   - Exposes editable fields in Builder.io (title, colors, CTA, copy)
+
+2) Marketing / Content Team
+   - Updates messaging directly in Builder.io:
+       * Welcome message
+       * CTA text and destination
+       * Campaign-specific color changes
+   - Publishes or schedules changes instantly
+
+3) Engineering Team
+   - Owns the core component behavior and AI logic
+   - Ensures stability, performance, and compliance
+   - Only involved when new features or full redisign needed
