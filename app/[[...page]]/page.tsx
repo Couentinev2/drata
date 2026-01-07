@@ -1,5 +1,7 @@
 import { builder } from "@builder.io/sdk";
 import { RenderBuilderContent } from "../src/components/builder"; 
+import "../../app/globals.css";
+
 
 export const revalidate = 5;
 
