@@ -1,6 +1,8 @@
 import { builder } from "@builder.io/sdk";
 import { RenderBuilderContent } from "../src/components/builder"; 
 
+export const revalidate = 5;
+
 // Initialize Builder
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
