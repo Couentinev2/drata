@@ -19,15 +19,12 @@ export const AiAssistant = ({
   ctaText = "Book a Demo",
   primaryColor = "#0055FF"
 }: AssistantProps) => {
-  // --- FIX START: SAFE PREVIEW CHECK ---
-  // We initialize as 'false' so the server never crashes.
+
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    // We only check for Builder.io once the component is in the browser.
     setIsEditing(isPreviewing());
   }, []);
-  // --- FIX END ---
 
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'bot'; text: string }[]>([
@@ -88,7 +85,6 @@ export const AiAssistant = ({
   return (
     <div
       className={
-        // If editing in Builder, use relative. If live, use fixed.
         isEditing
           ? "relative p-4 z-50 font-sans flex justify-center border-2 border-dashed border-gray-300"
           : "fixed bottom-6 right-6 z-50 font-sans"
@@ -100,7 +96,7 @@ export const AiAssistant = ({
           style={{ backgroundColor: primaryColor }}
           className="text-white p-4 rounded-full shadow-lg hover:opacity-90 transition-all flex items-center gap-2"
         >
-          <span className="font-bold">✨ Ask AI</span>
+          <span className="font-semibold">{title}</span>
         </button>
       )}
 
